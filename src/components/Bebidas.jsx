@@ -1,8 +1,7 @@
-import { useState } from "react"
+import { useState } from 'react'
 
 const Bebidas = (bebidas) => {
 	const [contador, setContador] = useState(0)
-	console.log(`contador`, contador)
 	const handlClick = (accion) => {
 		const ultimo = bebidas.bebidas.length
 		switch (accion) {
@@ -10,14 +9,14 @@ const Bebidas = (bebidas) => {
 				if (contador < ultimo - 1) {
 					setContador(contador + 1)
 				}
-				break;
+				break
 			case '-':
 				if (contador > 0) {
 					setContador(contador - 1)
 				}
-				break;
+				break
 			default:
-				break;
+				break
 		}
 	}
 

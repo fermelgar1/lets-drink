@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react"
-import NavBar from "./components/NavBar"
-import AgregarJugadores from "./components/AgregarJugadores"
+import { useEffect, useState } from 'react'
+import NavBar from './components/NavBar'
+import AgregarJugadores from './components/AgregarJugadores'
+import Bebidas from './components/Bebidas'
+import Inicio from './components/Inicio'
+import AgregarBebidas from './components/AgregarBebidas'
+import axios from 'axios'
 import {
   BrowserRouter as Router,
   Switch,
   Route
-} from "react-router-dom"
-import Bebidas from "./components/Bebidas"
-import Inicio from "./components/Inicio"
-import AgregarBebidas from "./components/AgregarBebidas"
-const axios = require('axios').default
+} from 'react-router-dom'
 
 function App() {
-  const [bebidas, setBebidas] = useState();
+  const [bebidas, setBebidas] = useState()
 
   useEffect(() => {
     const obtenerBebidas = async () => {
@@ -28,7 +28,7 @@ function App() {
   }, [])
 
   return (
-    <div className="">
+    <div className=''>
       <Router>
         <NavBar />
         <Switch>

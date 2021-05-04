@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { nanoid } from "nanoid";
+import { useState } from 'react'
+import { nanoid } from 'nanoid';
 
 const Agregarjugadores = () => {
 	const [jugadores, setJugadores] = useState([])
@@ -25,9 +25,9 @@ const Agregarjugadores = () => {
 	return (
 		<div className='flex items-center justify-center h-screen'>
 			<div className=' -mt-20 flex-col font-bold rounded-lg border  p-10 h-3/5 w-4/5 md:w-3/5 flex items-center justify-center bg-red-800'>
-				<form action="submit" onSubmit={(e) => agregarJugador(e)} className='flex flex-col'>
+				<form action='submit' onSubmit={(e) => agregarJugador(e)} className='flex flex-col'>
 					<input
-						type="text"
+						type='text'
 						value={nuevoJugador}
 						onChange={(event) => setNuevoJugador(event.currentTarget.value)}
 					/>
