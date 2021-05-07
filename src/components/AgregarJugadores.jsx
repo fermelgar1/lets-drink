@@ -1,9 +1,18 @@
-import { useState } from 'react'
-import { nanoid } from 'nanoid';
+import { useContext, useEffect, useState } from 'react'
+import { nanoid } from 'nanoid'
+import { useRouteMatch } from 'react-router'
+import { dataContext } from '../context/DataProvider'
 
 const Agregarjugadores = () => {
-	const [jugadores, setJugadores] = useState([])
 	const [nuevoJugador, setNuevoJugador] = useState('')
+	const { setRuta, jugadores, setJugadores, } = useContext(dataContext)
+
+	const match = useRouteMatch()
+	useEffect(() => {
+		setRuta(match.path)
+
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	},[])
 
 	const agregarJugador = (e) => {
 		e.preventDefault()
@@ -11,7 +20,8 @@ const Agregarjugadores = () => {
 			return
 		}
 		let jugadoresPush = jugadores
-		jugadoresPush.push({ nombre: nuevoJugador, id: nanoid })
+		let id = nanoid()
+		jugadoresPush.push({ nombre: nuevoJugador, id })
 		setJugadores(jugadoresPush)
 		setNuevoJugador('')
 	}
@@ -20,7 +30,6 @@ const Agregarjugadores = () => {
 		let jugadoresFilter = jugadores.filter((item) => item !== eliminar)
 		setJugadores(jugadoresFilter)
 	}
-
 
 	return (
 		<div className='flex items-center justify-center h-screen'>
@@ -43,7 +52,7 @@ const Agregarjugadores = () => {
 						{
 							jugadores &&
 							jugadores.map((item) =>
-								<li className=' items-center justify-center text-center' key={item.id} >{item.nombre} <button className='float-right mr-5' onClick={() => eliminarJugador(item)}>x</button></li>
+								<li className=' items-center justify-center text-center' key={item.id} >`${item.nombre}` <button className='float-right mr-5' onClick={() => eliminarJugador(item)}>x</button></li>
 							)
 						}
 					</ul>

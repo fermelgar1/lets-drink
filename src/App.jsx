@@ -8,7 +8,7 @@ import axios from 'axios'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from 'react-router-dom'
 
 function App() {
@@ -26,17 +26,17 @@ function App() {
     obtenerBebidas()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
   return (
     <div className=''>
       <Router>
-        <NavBar />
+        <NavBar ruta={''} />
         <Switch>
-          <Route path='/Juego'>
+          <Route path='/AgregarJugadores'>
             <AgregarJugadores />
           </Route>
-          <Route path='/AgregarBebidas' component={AgregarBebidas}/>
-          
+          <Route path='/AgregarBebidas'>
+            <AgregarBebidas />
+          </Route>
           <Route path='/Bebidas'>
             <Bebidas bebidas={bebidas} />
           </Route>
@@ -48,5 +48,4 @@ function App() {
     </div>
   );
 }
-
 export default App
